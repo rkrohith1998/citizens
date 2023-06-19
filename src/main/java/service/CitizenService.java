@@ -12,7 +12,7 @@ public class CitizenService {
     Respository respository;
 
     public String saveCitizen(CitizenTo citi) throws Exception {
-        CitizenTo citizen = citi.getId()==null?new CitizenTo():
+        CitizenTo citizen = citi.getId()==0?new CitizenTo():
                 respository.findById(citi.getId()).orElseThrow(() ->new RuntimeException("NO_DATE_FOUND"));
         if(citi.getName()==null){
             throw new Exception("Name should not be null");
